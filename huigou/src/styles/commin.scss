@@ -1,0 +1,39 @@
+@function c($px){
+	@return 1rem*($px/16);
+}
+// @function h($px){
+// 	@return height 1rem*($px/16);
+// }
+// @function fs($px){
+// 	@return font-size  1rem*($px/16);
+// }
+// @function lh($px){
+// 	@return line-height  1rem*($px/16);
+// }
+// @function margin($top,$right,$bottom,$left){
+// 	@return margin-top 1rem*($top/16);
+// 	@return margin-bottom 1rem*($bottom/16);
+// 	@return margin-left 1rem*($left/16);
+// 	@return margin-right 1rem*($right/16);
+// }
+// @function m-b($px){
+// 	@return margin-bottom 1rem*($px/16);
+// }
+// @function padding($top,$right,$bottom,$left){
+// 	@return padding-top 1rem*($top/16);
+// 	@return padding-bottom 1rem*($bottom/16);
+// 	@return padding-left 1rem*($left/16);
+// 	@return padding-right 1rem*($right/16);
+// }
+// @function top($px){
+// 	@return top 1rem*($px/16);
+// }
+// @function right($px){
+// 	@return right 1rem*($px/16);
+// }
+// @function bottom($px){
+// 	@return bottom 1rem*($px/16);
+// }
+// @function left($px){
+// 	@return left 1rem*($px/16);
+// }
