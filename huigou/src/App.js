@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import Home from './components/Home/Home';
-// import List from './components/List';
+import List from './components/List/List';
 import Cart from './components/Cart';
 import Classify from './components/Classify';
 import My from './components/My/Myinfo';
+import Search from './components/Search/Search';
 import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import { TabBar } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 // import { Item } from '../node_modules/antd-mobile/lib/tab-bar';
 import './styles/App.scss';
+
+
+
 class App extends Component {
     constructor(){
         super();
@@ -17,25 +21,21 @@ class App extends Component {
                 {
                     title:'首页',
                     path:'/home',
-                    img: './img/sprites.png',
                     position: '0px'
                 },
                 {
                     title:'分类',
                     path:'/classify',
-                    img: './img/sprites.png',
                     position: '-20px'
                 },
                 {
                     title:'购物车',
                     path:'/cart',
-                    img: './img/sprites.png',
                     position: '-50px'
                 },
                 {
                     title:'我的',
                     path:'/myinfo',
-                    img: './img/sprites.png',
                     position: '-83px'
                 }
 
@@ -62,6 +62,7 @@ class App extends Component {
         })
         this.props.history.replace(path);
     }
+    
     render() {
         return (
             <div className="App">
@@ -71,10 +72,11 @@ class App extends Component {
                         <Route path='/classify' component={Classify} />
                         <Route path='/cart' component={Cart} />
                         <Route path='/my' component={My} />
+                        <Route path='/search' component={Search} />
+                        <Route path='/list/:goods' component={List} />
                         <Redirect from='/' to='/home' exact />
                     </Switch>
                 </div>
-           
                 <TabBar
                 unselectedTintColor="#727272"
                 tintColor="#ff3200"
@@ -83,20 +85,21 @@ class App extends Component {
                 {
                     this.state.tabs.map((item,index)=>{
                            return <TabBar.Item
+                           hidden={this.state.hidden}
                                 title={item.title}
                                 key={item.path}
                                 icon={<div style={{
                                     width: '30px',
                                     height: '20px',
-                                    background: 'url(https://vipkshttps0.wiz.cn/ks/note/view/3070a5d0-e339-11e8-92a3-47b92e5247e4/aa446742-615d-4044-bd56-a7ab32cce3fd/index_files/sprites_3.png)  no-repeat',
-                                    backgroundPosition: '-83px 0px'
+                                    background: 'url(https://github.com/Vicki-Chen/HuiGou/blob/master/huigou/src/img/sprites.png?raw=true)  no-repeat',
+                                    backgroundPosition: `${item.position} 0px`
                                     }}
                                 />}
                                 selectedIcon={<div style={{
-                                    width: '32px',
+                                    width: '30px',
                                     height: '20px',
-                                    background: 'url(https://vipkshttps0.wiz.cn/ks/note/view/3070a5d0-e339-11e8-92a3-47b92e5247e4/aa446742-615d-4044-bd56-a7ab32cce3fd/index_files/sprites_3.png) no-repeat',
-                                    backgroundPosition: '-83px -29px',
+                                    background: 'url(https://github.com/Vicki-Chen/HuiGou/blob/master/huigou/src/img/sprites.png?raw=true) no-repeat',
+                                    backgroundPosition: `${item.position} -29px`,
                                 }}
                             />}
                             selected={this.state.currentIndex === index}

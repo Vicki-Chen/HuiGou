@@ -11,7 +11,17 @@ const fs = require('fs');
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
 
-module.exports = function(proxy, allowedHost) {
+let myprox = {
+    "/hgapi":{
+        "target": "http://m-api.huigo8.com/",
+        "changeOrigin": true,
+        "pathRewrite":{
+            "^/hgapi": "/"
+        }
+    }
+}
+
+module.exports = function(proxy=myprox, allowedHost) {
   return {
     // WebpackDevServer 2.4.3 introduced a security fix that prevents remote
     // websites from potentially accessing local content through DNS rebinding:
