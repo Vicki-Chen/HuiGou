@@ -3,12 +3,12 @@ import Home from './components/Home/Home';
 import List from './components/List/List';
 import Cart from './components/Cart';
 import Classify from './components/Classify';
-import My from './components/My/Myinfo';
+import Myinfo from './components/My/Myinfo.js';
 import Search from './components/Search/Search';
 import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import { TabBar } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
-// import { Item } from '../node_modules/antd-mobile/lib/tab-bar';
+import "./styles/base.css";
 import './styles/App.scss';
 
 
@@ -35,7 +35,7 @@ class App extends Component {
                 },
                 {
                     title:'我的',
-                    path:'/myinfo',
+                    path:'/my',
                     position: '-83px'
                 }
 
@@ -71,7 +71,7 @@ class App extends Component {
                         <Route path='/home' component={Home} />
                         <Route path='/classify' component={Classify} />
                         <Route path='/cart' component={Cart} />
-                        <Route path='/my' component={My} />
+                        <Route path='/my' component={Myinfo} />
                         <Route path='/search' component={Search} />
                         <Route path='/list/:goods' component={List} />
                         <Redirect from='/' to='/home' exact />
